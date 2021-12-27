@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPTree - Matt Parker's Tree Emulator</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="icon" href="/favicon.ico">
+
+
+    <style>
+        :root {
+            font-size: 15px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            background-color: lightcyan;
+        }
+
+        .app {
+            padding: 1em 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            height: 100%;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+        }
+
+        .col {
+            padding: 1em;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        footer {
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <h1 class="title">MPTree - Matt Parker's Tree Emulator</h1>
+        <header>
+            <div class="col">
+                <h2>Instructions</h2>
+                <ol>
+                    <li>Load GIFT coordinates file from your tree calibration (or use Matt's).</li>
+                    <li>Load CSV light sequence.</li>
+                    <li>Wait for the canvas to load.</li>
+                    <li>Drag the canvas to change camera perspective. Use scroll wheel to zoom in and out.</li>
+                    <li>(Optional) Tweak tree scaling and sphere light size.</li>
+                </ol>
+            </div>
+            <div class="col">
+                <h2>Controls</h2>
+                <div>
+                    <label for="coordinates-file">Tree Coordinates</label>
+                    <input id="coordinates-file" type="file" onchange="loadTreeCoordinates()">
+                    <button id="matts-coordinates" onclick="loadMattsTreeCoordinates()">Use Matt's 2021
+                        Coordinates</button>
+                </div>
+                <div>
+                    <label for="sequence-file">Light Sequence</label>
+                    <input id="sequence-file" type="file" onchange="loadLightSequence()">
+                    <button id="random-sequence" onclick="loadRandomSequence()">Use random sequence*</button>
+                </div>
+                <div>
+                    <label for="tree-scaling">Tree Scaling</label>
+                    <input id="tree-scaling" type="number" onchange="loadTreeScalingOption()" value="100" min="0"
+                        max="500">
+                </div>
+                <div>
+                    <label for="sphere-size">Sphere Size</label>
+                    <input id="sphere-size" type="number" onchange="loadSphereSizeOption()" value="3" min="0" max="50">
+                </div>
+            </div>
+        </header>
+        <main id="myContainer"></main>
+        <footer>
+            <p>
+                Author: <a href="https://github.com/santiagodg">Santiago Díaz Guevara</a><br>
+                <a href="https://github.com/santiagodg/santiagodg.github.io/tree/master/mptree">GitHub Repository</a>
+            </p>
+            <p>* Random sequence by <a
+                    href="https://github.com/BoostCookie/xmastree2021/blob/main/examples/bouncy-ball.csv">BoostCookie</a>
+            </p>
+            <p><a href="https://iconscout.com/icons/christmas-tree" target="_blank">Christmas tree Icon</a> by <a
+                    href="https://iconscout.com/contributors/chanut-is-industries">Chanut Is Industries</a> on <a
+                    href="https://iconscout.com">Iconscout</a></p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
+        integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/csv_to_json.js"></script>
+    <script src="/coordinates.js"></script>
+    <script src="/light-sequence.js"></script>
+    <script src="/input.js"></script>
+    <script src="/tree.js"></script>
+    <script src="/index.js"></script>
+</body>
+
+</html>
