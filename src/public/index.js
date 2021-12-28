@@ -29,7 +29,7 @@ function setupTree() {
 }
 
 function draw() {
-    background(200);
+    background(50);
     orbitControl();
 
     if (!input.isReady()) {
