@@ -95,7 +95,8 @@ function loadLightSequence() {
 
 function loadRandomSequence() {
     const availableSequences = [
-        "https://raw.githubusercontent.com/BoostCookie/xmastree2021/main/examples/bouncy-ball.csv"
+        "https://raw.githubusercontent.com/BoostCookie/xmastree2021/main/examples/bouncy-ball.csv",
+        "https://raw.githubusercontent.com/d-albrecht/XMas-Tree-Explosions/main/v1/explosions6flicker.csv",
     ];
 
     const random = Math.floor(Math.random() * availableSequences.length);
